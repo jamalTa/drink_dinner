@@ -1,19 +1,168 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle`
+						           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+			<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
+			<link rel="stylesheet" href="{{ asset('assets/css/main.css')}}">
+			<link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet">
+			<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+		{% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+			<script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
+			<script src="https://kit.fontawesome.com/0f9e64704e.js" crossorigin="anonymous"></script>
+		{% endblock %}
+	</head>
+	<body>
+		<h1 class="text-logo">Drink diner's</h1>
+		{% if app.user %}
+			<h1>Bienvenu
+				{{app.user.prenom}}
+			</h1>
+		{% endif %}
+		<nav>
+			<ul class="nav nav-pills " role="tablist">
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('home')}}">Acceuil</a>
+				</li>
+				{% if app.user %}
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('show_detail_categorie')}}">Nos menus</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('profil')}}">Mon profile</a>
+					</li>
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_contact_show')}}">Messagerie</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_categorie_index')}}">Categories</a>
+						</li>
+							<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_produit_index')}}">Produits</a>
+						</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout')}}">Deconnexion</a>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_login')}}">Connexion</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_register')}}">Inscription</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Nos menus</a>
+					</li>
+				{% endif %}
+			</ul>
+		</nav>
+		{% block body %}{% endblock %}
+
+		<div
+			class="container my-5">
+			<!-- Footer -->
+			<footer
+				class="text-center text-lg-start text-white" style="background-color: #3e4551">
+				<!-- Grid container -->
+				<div
+					class="container p-4 pb-0">
+					<!-- Section: Links -->
+					<section
+						class="">
+						<!--Grid row-->
+						<div
+							class="row">
+							<!--Grid column-->
+							<div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+								<h5 class="text-uppercase">FOOTER CONTENT</h5>
+
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit.
+																		              Molestiae modi cum ipsam ad, illo possimus laborum ut
+																		              reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur eaque?
+																		              Reiciendis assumenda iusto sapiente inventore animi?
+								</p>
+							</div>
+						</div>
+						<!--Grid row-->
+					</section>
+					<hr
+					class="mb-4"/>
+					<!-- Section: CTA -->
+					<section class="">
+						<p class="d-flex justify-content-center align-items-center">
+							<span class="me-3">Register for free</span>
+							<button type="button" class="btn btn-outline-light btn-rounded">
+								Sign up!
+							</button>
+						</p>
+					</section>
+					<!-- Section: CTA -->
+
+					<hr
+					class="mb-4"/>
+
+					<!-- Section: Social media -->
+					<section
+						class="mb-4 text-center">
+						<!-- Facebook -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+
+						<!-- Twitter -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-twitter"></i>
+						</a>
+
+						<!-- Google -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-google"></i>
+						</a>
+
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-instagram"></i>
+						</a>
+
+						<!-- Linkedin -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+
+						<!-- Github -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-github"></i>
+						</a>
+					</section>
+					<!-- Section: Social media -->
+				</div>
+				<!-- Grid container -->
+
+				<!-- Copyright -->
+				<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+					© 2020 Copyright:
+					<a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+				</div>
+				<!-- Copyright -->
+			</footer>
+			<!-- Footer -->
+		</div>
+		<!-- End of .container -->
+
+
+	</body>
 </html>

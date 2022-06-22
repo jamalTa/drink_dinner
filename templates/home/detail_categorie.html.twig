@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}New Contact
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	
+     <div class="row m-3">
+	 
+	{% for categorie in list_categories %}
+		
+		<div class="card m-4" style="width: 18rem;">
+			<img src="{{ asset ('assets/images/' ~ categorie.image)}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">{{categorie.nom}}</h5>
+				
+				<a href="{{ path('home/detail_produit_categorie.html.twig', {id: categorie.id})}}" class="btn btn-primary">voir</a>
+			</div>
+		</div>
+
+		
+	{% endfor %}
+	 
+	 </div>
+	
+
+
+		{% endblock %}

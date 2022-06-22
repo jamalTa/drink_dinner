@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h1>Contact</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Objet</th>
+                <th>Titre</th>
+                <th>Date_envoi</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.objet }}</td>
+                <td>{{ contact.titre }}</td>
+                <td>{{ contact.dateEnvoi ? contact.dateEnvoi|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ contact.message }}</td>
+                <td>
+                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}">Lire</a>
+                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}">Modifier</a>
+                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contact_new') }}">Nouveau message</a>
+{% endblock %}

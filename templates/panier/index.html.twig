@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+<div class = 'container'>
+
+{{dump(panier)}}
+<a href="{{ path('add_panier') }}">ajouter</a>
+<a href="{{ path('delete_panier') }}">supprimer</a>
+<a href="{{ path('delete_quantity_panier') }}">-1</a>
+</div>
+
+{% endblock %}

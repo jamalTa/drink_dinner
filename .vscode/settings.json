@@ -1,0 +1,10 @@
+{
+    "php.validate.executablePath": "",
+    "symfony-vscode.phpExecutablePath": "/usr/bin/php",
+    "symfony-vscode.fileWatchingPatterns": [
+    
+        "yml",
+        "yaml",
+        "xml"
+    ]
+}

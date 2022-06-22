@@ -1,0 +1,65 @@
+*
+{
+    font-family:'Holtwood One SC', sans-serif;
+    color: red;
+    
+}
+body
+{
+    background: url(../images/bg.png);
+}
+
+/* main
+{
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+form
+{
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+} */
+
+.text-logo
+{
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+    font-family:'Holtwood One SC', sans-serif;
+    font-size: 60px;
+}
+
+.nav
+{
+    margin-bottom: 40px;
+}
+
+.nav-pills > li > a.active {
+    background-color: #ff0000 !important;
+}
+.nav>li>a:focus, .nav>li>a:hover
+{
+    color: whitesmoke;
+    background-color: red;
+}
+.nav>li a
+{
+    color: whitesmoke;
+    font-size: 18px;
+    text-shadow: 2px 2px #333;
+}
+
+td{
+    color: whitesmoke;
+}
+
+
