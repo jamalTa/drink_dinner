@@ -10,8 +10,8 @@
 						           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
-			<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
 			<link rel="stylesheet" href="{{ asset('assets/css/main.css')}}">
+			<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
 			<link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet">
 			<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 		{% endblock %}
@@ -35,9 +35,8 @@
 					<a class="nav-link" href="{{ path('home')}}">Acceuil</a>
 				</li>
 				{% if app.user %}
-
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('show_detail_categorie')}}">Nos menus</a>
+						<a class="nav-link" href="{{ path('categorie_catalogue')}}">Nos menus</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('profil')}}">Mon profile</a>
@@ -52,7 +51,12 @@
 							<li class="nav-item">
 							<a class="nav-link" href="{{ path('app_produit_index')}}">Produits</a>
 						</li>
+						</li>
+							<li class="nav-item">
+							<a class="nav-link" href="{{path('app_carousel_index')}}">Image carousel</a>
+						</li>
 					{% endif %}
+
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_logout')}}">Deconnexion</a>
 					</li>
@@ -64,7 +68,7 @@
 						<a class="nav-link" href="{{ path('app_register')}}">Inscription</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Nos menus</a>
+						<a class="nav-link" href="{{ path('categorie_catalogue')}}">Nos menus</a>
 					</li>
 				{% endif %}
 			</ul>
@@ -91,9 +95,9 @@
 
 								<p>
 									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-																		              Molestiae modi cum ipsam ad, illo possimus laborum ut
-																		              reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur eaque?
-																		              Reiciendis assumenda iusto sapiente inventore animi?
+									Molestiae modi cum ipsam ad, illo possimus laborum ut
+									reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur eaque?
+									Reiciendis assumenda iusto sapiente inventore animi?
 								</p>
 							</div>
 						</div>

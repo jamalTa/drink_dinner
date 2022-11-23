@@ -3,12 +3,38 @@
 {% block title %}Hello PanierController!{% endblock %}
 
 {% block body %}
-<div class = 'container'>
+ <div class = 'container'>
+ <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+ <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">produit</th>      
+      <th scope="col">quantité</th>      
+      <th >total</th>
+      <th >action</th>
+    </tr>
+  </thead>
+  <tbody>
 
-{{dump(panier)}}
-<a href="{{ path('add_panier') }}">ajouter</a>
-<a href="{{ path('delete_panier') }}">supprimer</a>
-<a href="{{ path('delete_quantity_panier') }}">-1</a>
-</div>
+	
+
+  {% for item in panier %}
+	<tr>
+		<td scope="row">{{item['produit'].getNom()}}</td>
+		<td scope="row">{{item['quantite']}}</td> 
+		<td scope="row">{{item['total']}}€</td> 
+		<td><a href="{{ path('delete_quantity_panier',{'id' : item['produit'].getId()}) }}"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+		<a href="{{ path('add_panier', {'id' : item ['produit'].getId()}) }}"><i class="fa fa-plus-square" aria-hidden="true"></i></a></td>
+	</tr>
+  {% endfor %}
+   
+</table>
+<h3>Le total de votre panier : {{total_panier}}€  </h3>
+
+<a href="{{ path('delete_panier') }}">supprimer panier</a>
+<a href="{{ path('confirme_panier')}}">confirmation panier</a>
+
+</div> 
 
 {% endblock %}

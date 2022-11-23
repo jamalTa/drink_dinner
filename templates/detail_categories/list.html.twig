@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Categories
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+<h1>produits de la categorie {{nom}}</h1>
+	
+     <div class="row m-3">
+	 
+	{% for produit in list_produits %}
+		
+		<div class="card m-4" style="width: 18rem;">
+			<img src="{{ asset ('assets/images/' ~ produit.image)}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">{{produit.nom}}</h5>	
+				<p>{{produit.description}}</p>
+				<p>Prix :{{ produit.prix}}€</p>
+				<a href="{{path('add_panier', {'id' : produit.id})}}" class="btn btn-primary">Mettre dans le panier</a>
+			</div>
+		</div>
+	{% endfor %}
+	 
+	 </div>
+	
+
+
+	{% endblock %}

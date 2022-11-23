@@ -2,15 +2,18 @@
 
 namespace App\Classes;
 
+use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Panier
 {
     private $session;
+    private $produitRepository;
 
-    public function __construct(SessionInterface $sessionInterface)
+    public function __construct(SessionInterface $sessionInterface, ProduitRepository $produitRepository)
     {
         $this->session = $sessionInterface;
+        $this->produitRepository = $produitRepository;
     }
 
     /**
@@ -78,5 +81,70 @@ class Panier
         $this->session->set('panier', $panier);
 
     }
+    
+    /**
+     * fonction qui renvoie le tableau avec le detail des produits commander
+     */
+
+    public function getDetailPanier()
+    {
+        //je recupere le panier
+        $panier= $this->getTableauPanier();
+        //je créer un tableau vide
+        $detail_panier= [];
+        //je boucle sur le tableau panier
+        foreach($panier as $id=>$quantity)
+        {
+            $produit =$this->produitRepository->find($id);            
+            //j ajoute l objet produit et la quantité récupéré au tableau vide
+            if($produit)//si il y a un produit dans la bdd 
+            {
+                //je declare une variable taux qui sera de la valeur du montant de la tva 
+                //$taux = $produit->getTva()->getTaux();
+                //total qui aura pour valeur la quantité de produit * le prix
+                $total = $quantity * $produit->getPrix();
+                //$ht    = $total/(1+($taux/100));
+               // $tva  = $total - $ht;
+               $detail_panier [] =
+               [
+                   'produit' => $produit,               
+                   'quantite'=> $quantity ,
+                   'total' => $quantity * $produit->getPrix()
+               ];
+            }
+        }
+        // je renvoie le nouveau tableau
+        return $detail_panier;
+    }
+
+    /**
+     * fonction qui retourne le total du panier
+     */
+
+    public function getTotalPanier()
+    {
+        //je recupere le tableau detail panier
+        $panier = $this->getDetailPanier();
+        //je déclare une variable total_panier
+        $total_panier = 0;
+        //je boucle dans mon tableau afin de récupérer les montant par ligne
+        foreach($panier as $ligne)
+        {
+            $total_panier = $total_panier + $ligne['total'];
+            
+        }
+        return $total_panier;
+    }
+
+    /**
+     * fonction qui renvoie sur un vue pour confirmer le panier
+     */
+
+     public function confirmePanier()
+     {
+        
+     }
+
+
 
 }
