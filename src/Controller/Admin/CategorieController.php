@@ -42,7 +42,7 @@ class CategorieController extends AbstractController
                  $categorie->setImage($img_file_name);
              } else {
                  // si $image = null je set l'image par default
-                 $categorie->setImage('defaultimg.png');
+                 $categorie->setImage('utilisateur.png');
              }
              //équivalent de persiste et flush
           

@@ -6,20 +6,20 @@
 
 {% block body %}
 
-	<main class="container">
-		<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" > 
-			<div class="carousel-inner">
-				{% for carousel in carousel %}
-					{% if loop.index0 == 0 %}
-						<div class="carousel-item active">
-						{% else %}
-							<div class="carousel-item ">
-							{% endif %}
-							<img class=" h-50 d-inline-block" src="{{ asset('assets/images/' ~ carousel.nom )}}" alt="">							
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
 
-	{% endblock %}
+    <div class="carousel-inner">
+    {% for carousel in carousel %}
+       {% if loop.index0 == 0 %}
+        <div class="carousel-item active">
+       {% else %}
+       <div class="carousel-item ">
+       {% endif %} 
+        <img class="d-block w-100" src="{{asset('assets/images/' ~ carousel.nom)}}" alt="">        
+        </div>
+    {% endfor %}    
+   
+    </div>
+
+
+{% endblock %}

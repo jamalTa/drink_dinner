@@ -49,9 +49,8 @@ class PanierController extends AbstractController
     {
         //je récupére l utilisateur connecté
         $user = $this->getUser();
-         // si notre client n'a pas renseigné un nom ou une adresse 
+         // si notre client n'a pas renseigné un nom ou une adresse ou un code postal
         // on le renvoie vers un formulaire pour compléter les données 
-
         if(!$user->getNom() || !$user->getAdresse() || !$user->getCodePostal())
         {
             $form = $this->createForm(ConfirmationLivraisonType::class, $user);
@@ -76,7 +75,9 @@ class PanierController extends AbstractController
             'total_panier'=>$panier->getTotalPanier()
     
         ]);
+        
     }
+
 
 }
 

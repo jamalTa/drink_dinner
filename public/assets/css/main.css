@@ -1,43 +1,42 @@
 *
 {
+    margin: 0;
+    padding: 0;
     font-family:'Holtwood One SC', sans-serif;
-    color: red;
-    
+    color: hwb(0 14% 12%);  
+    box-sizing: border-box; 
 }
+
+/* menu humburger*/
+
+
+
 body
 {
     background: url(../images/bg.png);
 }
 
-/* main
-{
-    width: 100vw;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
 
-form
-{
-    width: 50%;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-} */
+
+img {
+    width: 100%;
+    height: auto;
+  }
+
+
+/* home */
 
 .text-logo
 {
     text-align: center;
-    color: red;
-    margin-top: 10px;
+    color: hwb(0 14% 12%);
+    margin-top: 20px;
     font-family:'Holtwood One SC', sans-serif;
     font-size: 60px;
+    
 }
 
+.text-center text-lg-start text-white
 .nav
 {
     margin-bottom: 40px;
@@ -53,10 +52,30 @@ form
 }
 .nav>li a
 {
+    
+    
     color: whitesmoke;
     font-size: 18px;
     text-shadow: 2px 2px #333;
+    
 }
+
+
+
+/* menu humburger*/
+
+.burger
+{
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 
 td{
     color: whitesmoke;
@@ -64,3 +83,16 @@ td{
 
 
 
+
+
+  /*Carrousel*/
+#carouselExampleSlidesOnly
+{
+    display: none;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}
+  /*footer*/
+
+  

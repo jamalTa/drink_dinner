@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Produit;
-
 use App\Entity\Categorie;
 use App\Repository\CarouselRepository;
 use App\Repository\ProduitRepository;
@@ -21,26 +20,5 @@ class HomeController extends AbstractController
         ]);
     }
 
-
-    
-    // #[Route('/detail-produit/{id}', name: 'show_produit_categorie')]
-    // public function show(Categorie $categorie, ProduitRepository $produitRepository , $id): Response
-    // {
-    //     return $this->render('home/detail_produit_categorie.html.twig', [
-    //         'list_produits' => $produitRepository->findAll(),
-    //         'produit' => $categorie->getProduits(),
-    //     ]);
-    // }
-    
-  
-
-    // #[Route('/produit/{id}', name: 'show_produit_categorie', methods:{" GET "})]
-    // public function showProduit(Categorie $categorie, ProduitRepository $produitRepository): Response
-    // {
-    //     return $this->render('home/detail_produit_categorie.html.twig', [
-    //         'list_produits' => $produitRepository->findAll(),
-    //         'produit' => $categorie->getProduits(),
-            
-    //     ]);
-    // }
+   
 }

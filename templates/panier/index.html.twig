@@ -3,12 +3,16 @@
 {% block title %}Hello PanierController!{% endblock %}
 
 {% block body %}
+{% if app.user %}
+			<h1>votre panier
+				{{app.user.prenom}}
+			</h1>
+		{% endif %}
  <div class = 'container'>
  <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
  <table class="table">
   <thead>
-    <tr>
-      
+    <tr>      
       <th scope="col">produit</th>      
       <th scope="col">quantité</th>      
       <th >total</th>
@@ -16,8 +20,6 @@
     </tr>
   </thead>
   <tbody>
-
-	
 
   {% for item in panier %}
 	<tr>
@@ -34,6 +36,7 @@
 
 <a href="{{ path('delete_panier') }}">supprimer panier</a>
 <a href="{{ path('confirme_panier')}}">confirmation panier</a>
+<a href="{{ path('categorie_catalogue')}}">retour aux menus</a>
 
 </div> 
 

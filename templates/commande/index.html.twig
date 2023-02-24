@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block body %}
+    <h1>Commande index</h1>
+
+    <a href="{{ path('app_commande_index',{'param':'tout'}) }}">voir toutes les commandes</a>
+    <a href="{{ path('app_commande_index',{'param':'livre'}) }}">voir les commande livré</a>
+    <a href="{{ path('app_commande_index',{'param':'nlivré'}) }}">commande en cours</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_commande</th>
+                <th>Nom</th>
+                <th>Statu</th>
+                <th>Total</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.dateCommande ? commande.dateCommande|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.nom }}</td>
+                <td>{{ commande.statu ? 'Yes' : 'No' }}</td>
+                <td>{{ commande.total }}</td>
+                <td>
+                    <a href="{{ path('app_commande_show', {'id': commande.id}) }}">voir</a>
+                    <a href="{{ path('app_commande_edit', {'id': commande.id}) }}">edit</a>
+                    <a href="{{ path('app_commande_delete', {'id': commande.id}) }}">supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
+{% endblock %}

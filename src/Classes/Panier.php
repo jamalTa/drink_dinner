@@ -109,7 +109,7 @@ class Panier
                [
                    'produit' => $produit,               
                    'quantite'=> $quantity ,
-                   'total' => $quantity * $produit->getPrix()
+                   'total'   => $quantity * $produit->getPrix()
                ];
             }
         }

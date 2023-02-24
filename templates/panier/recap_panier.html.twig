@@ -3,6 +3,7 @@
 {% block title %}Hello PanierController!{% endblock %}
 
 {% block body %}
+
  <div class = 'container'>
 
  <h3>Votre recapitulatif de commande avant le réglement</h3>
@@ -43,8 +44,8 @@
  
 </table>
  
-
-<a href="#">Passer Commande</a>
+<a href="#">Modifier l'addresse</a>
+<a href="{{path('app_achat')}}">Passer à l'achat</a>
 <a href="{{path('delete_panier')}}">Annuler Commande</a>
 
 </div> 

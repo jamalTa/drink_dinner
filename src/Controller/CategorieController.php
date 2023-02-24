@@ -14,14 +14,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/categorie', name:'categorie_')]
 class CategorieController extends AbstractController
-{
-    
-
+{    
     public function __construct(protected CategorieRepository $categorieRepository)
     {
         
     }
-
     
     #[Route('/', name: 'catalogue')]
     public function index( ): Response
@@ -35,12 +32,10 @@ class CategorieController extends AbstractController
     public function list(string $nom): Response
     {
        $categorie = $this->categorieRepository->findOneByNom($nom);
-        return $this->render('detail_categories/list.html.twig', 
-        ['list_produits' => $categorie->getProduits(),
+        return $this->render('detail_categories/list.html.twig',[
+          'list_produits' => $categorie->getProduits(),
           'nom'=> $nom
         ]); 
-    }
-
- 
+    } 
 }
 
