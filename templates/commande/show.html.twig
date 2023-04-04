@@ -19,6 +19,10 @@
                 <th>Nom</th>
                 <td>{{ commande.nom }}</td>
             </tr>
+             <tr>
+                <th>adresse livraison</th>
+                <td>{{ commande.adresseLivraison }}</td>
+            </tr>
             <tr>
                 <th>Statu</th>
                 <td>{{ commande.statu ? 'Yes' : 'No' }}</td>
@@ -38,22 +42,34 @@
     {% else %}
     <a href="{{ path('app_commande_livre', {'id': commande.id}) }}">Livré</a>
     {% endif %}
-   <h1>Voici le detail de votre panier</h1>  
+    <hr>
+    <hr>
+    <h2>detail commande</h2>
+    <hr>
+    <hr>
+    <div>
+    <h5>Information adresse client</h5>
+    
+    
+    </div>
+   
 
     <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
         <table class="table">
         <thead>
             <tr>      
-                <th scope="col">produit</th>      
+                <th scope="col">produit</th>                          
                 <th scope="col">prix unitaire</th>      
                 <th scope="col">total</th>  
             </tr>
         </thead>
         <tbody>
+        
 
         {% for item in commande.detailCommandes %}
             <tr>
                 <td scope="row">{{item.getNom()}}</td> 
+                
                 <td scope="row">{{item.PrixUnitaire()}}</td>
                 <td scope="row">{{item.total}}€</td>                
             </tr>

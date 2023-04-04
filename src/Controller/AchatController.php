@@ -29,6 +29,6 @@ class AchatController extends AbstractController
         $panier->deletePanier();
         // todo ici module stripe
 
-        return $this->render('home/index.html.twig');
+        return $this->redirectToRoute('home');
     }
 }

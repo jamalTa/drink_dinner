@@ -31,7 +31,7 @@ class PanierController extends AbstractController
     }
 
     #[Route('/add-panier/{id}', name: 'add_panier')]
-    public function add(Panier $panier, $id ): Response
+    public function add(Panier $panier, $id): Response
     {
         $panier-> addProduitPanier($id);
         return $this->redirectToRoute('panier');

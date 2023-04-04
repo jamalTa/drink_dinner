@@ -77,6 +77,17 @@ img {
 }
 
 
+
+
+.modif
+{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
 td{
     color: whitesmoke;
 }
@@ -88,7 +99,7 @@ td{
   /*Carrousel*/
 #carouselExampleSlidesOnly
 {
-    display: none;
+    
     width: 50%;
     height: 50%;
     margin: auto;

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Categorie;
+use App\Entity\Produit;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,8 +35,13 @@ class CategorieController extends AbstractController
        $categorie = $this->categorieRepository->findOneByNom($nom);
         return $this->render('detail_categories/list.html.twig',[
           'list_produits' => $categorie->getProduits(),
-          'nom'=> $nom
+          'nom'=> $nom,
+          
         ]); 
     } 
+
+   
+
+    
 }
 

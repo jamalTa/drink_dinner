@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Boisson{% endblock %}
+
+{% block body %}
+    <h1>Create new Boisson</h1>
+
+    {{ include('boisson/_form.html.twig') }}
+
+    <a href="{{ path('app_boisson_index') }}">back to list</a>
+{% endblock %}
