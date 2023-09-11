@@ -24,7 +24,7 @@
 					<p>{{produit.description}}</p>
 					<p>Prix :{{ produit.prix}}€</p>
 
-					<a href="{{ path('modifierProduit_commande', {'id': produit.id}) }}" class="btn btn-primary">je commande</a>
+					<a href="{{ path('add_panier',{'id': produit.id}) }}" class="btn btn-primary">je commande</a>
 				</div>
 			</div>
 		{% endfor %}

@@ -47,13 +47,7 @@
     <h2>detail commande</h2>
     <hr>
     <hr>
-    <div>
-    <h5>Information adresse client</h5>
-    
-    
-    </div>
-   
-
+  
     <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
         <table class="table">
         <thead>
@@ -64,19 +58,14 @@
             </tr>
         </thead>
         <tbody>
-        
-
         {% for item in commande.detailCommandes %}
             <tr>
-                <td scope="row">{{item.getNom()}}</td> 
-                
+                <td scope="row">{{item.getNom()}}</td>   
                 <td scope="row">{{item.PrixUnitaire()}}</td>
                 <td scope="row">{{item.total}}€</td>                
             </tr>
         {% endfor %}
         </tbody>
         </table>
-
-
     {{ include('commande/_delete_form.html.twig') }}
 {% endblock %}
